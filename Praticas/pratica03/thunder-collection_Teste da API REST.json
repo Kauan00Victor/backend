@@ -1,0 +1,132 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Teste da API REST",
+    "dateExported": "2024-03-05T00:20:50.702Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ae68e259-e7b6-4a3c-b892-2c3339ec5a14",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/101",
+            "url": "https://dummyjson.com/products/101",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2024-03-05T00:19:52.481Z",
+            "modified": "2024-03-05T00:19:52.481Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"iPhone 19\",\n  \"description\": \"Novo Iphone\",\n  \"price\": 549\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b20ee0c0-571a-4203-99d2-b46ab78b836d",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/1",
+            "url": "https://dummyjson.com/products/1",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-03-05T00:19:56.537Z",
+            "modified": "2024-03-05T00:19:56.537Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"iPhone 19\",\n  \"description\": \"Novo Iphone\",\n  \"price\": 549\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "105669de-ca39-4c9d-aa74-84891c57435a",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/101",
+            "url": "https://dummyjson.com/products/101",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-05T00:20:05.304Z",
+            "modified": "2024-03-05T00:20:05.304Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"iPhone 19\",\n  \"description\": \"Novo Iphone\",\n  \"price\": 549\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "258ee654-448e-47aa-9483-0ddf6250fd36",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/101",
+            "url": "https://dummyjson.com/products/101",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-03-05T00:20:09.433Z",
+            "modified": "2024-03-05T00:20:09.433Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"iPhone 19\",\n  \"description\": \"Novo Iphone\",\n  \"price\": 549\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0bbd70bc-f302-43c8-ba61-c922b9144c26",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/add",
+            "url": "https://dummyjson.com/products/add",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-03-05T00:20:13.153Z",
+            "modified": "2024-03-05T00:20:13.153Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"title\": \"iPhone 19\",\n  \"description\": \"Novo Iphone\",\n  \"price\": 549\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4a8aacf7-d0cb-45c3-b9f5-2f2be38b8cc5",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/101",
+            "url": "https://dummyjson.com/products/101",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-03-05T00:20:17.496Z",
+            "modified": "2024-03-05T00:20:17.496Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "de19fd79-7aba-4646-9474-331a5817dbb9",
+            "colId": "0cc01622-cf4f-47f4-9b01-0139c2d04b51",
+            "containerId": "",
+            "name": "https://dummyjson.com/products/1",
+            "url": "https://dummyjson.com/products/1",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-03-05T00:20:22.001Z",
+            "modified": "2024-03-05T00:20:22.001Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
