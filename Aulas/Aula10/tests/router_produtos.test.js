@@ -14,6 +14,7 @@ describe('API Loja Virtual', function () {
         id = result.body._id.toString();
         expect(result.status).toBe(201);
         expect(result.type).toBe("application/json")
+        
     })
     test("Deve retornar 422 e um JSON para POST /produtos", async () => {
         const result = await request
@@ -25,7 +26,10 @@ describe('API Loja Virtual', function () {
         const result = await request
             .get("/produtos");
         expect(result.status).toBe(200);
-        expect(result.type).toBe("application/json")
+        expect(result.type).toBe("application/json");
+        if (result.body.length > 0) {
+            id = result.body[0]._id.toString();
+        }
     })
     test("Deve retornar 200 e um JSON para GET /produtos/id", async () => {
         const result = await request
@@ -63,11 +67,11 @@ describe('API Loja Virtual', function () {
         const result = await request
             .delete(`/produtos/${id}`);
         expect(result.status).toBe(204);
-        expect(result.type).toBe();
+        expect(result.type).toBe("");
     })
     test("Deve retornar 404 e um JSON para DELETE /produtos/id", async () => {
         const result = await request
-            .put(`/produtos/id`)
+            .delete(`/produtos/id`)
         expect(result.status).toBe(404);
         expect(result.type).toBe("application/json")
     })
