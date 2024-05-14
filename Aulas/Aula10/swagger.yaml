@@ -6,6 +6,15 @@ tags:
   - produtos
 paths:
   /produtos:
+    get:
+      tags:
+        - produtos
+      responses: 
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArrayOfProdutos"
     post:
       tags:
         - produtos
@@ -25,6 +34,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Mensagem'
+  /produtos/{id}:
+    get:
+      tags:
+        - produtos
+      responses: 
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArrayOfProdutos"
+    post:
+      tags:
+        - produtos
+    put:      
+      tags:
+        - produtos
+    delete:
+      tags:
+        - produtos
+      responses:
+        204:
+          content:
+            application/json:
+              schema:
+                $ref:'#/components/schemas/Mensagem'
+
 components:
   schemas:
     Produto:
@@ -39,3 +74,7 @@ components:
       properties:
         msg:
           type: string
+    ArrayOfProdutos:
+      type: array
+      itens:
+        $ref: '#/components/schemas/Produto'
