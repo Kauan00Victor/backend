@@ -1,29 +1,30 @@
-const contato = require('./modelo')
+const modelo = require("./modelo");
 
-function adicionarContato(nome, email, telefone) {
-    const contato = Contato();
-    return contato.inserir();
-};
+function consultarContato(nome) {
+  const contato = new modelo.Contato(nome);
+  return modelo.consultar(contato);
+}
 
-function buscarContato(nome) {
-    const contato = Contato(nome);
-    return contato.buscar();
-};
+function incluirContato(nome, email, telefone) {
+  const contato = new modelo.Contato(nome, email, telefone);
+  return modelo.inserir(contato);
+}
 
 function atualizarContato(nome, email, telefone) {
-    const contato = buscarContato()
-    if (buscarContato) {
-        buscarContato.telefone = telefone;
-        buscarContato.email = email;
-    }
-    contato.atualizar()
+  const contato = consultarContato(nome);
+  contato.email = email;
+  contato.telefone = telefone;
+  return contato;
 }
 
 function removerContato(nome) {
-    const contato = buscarContato()
-    if (buscarContato) {
-        contato.remover()
-    }
+  const contato = consultarContato(nome);
+  return contato;
 }
 
-module.exports = {atualizarContato, buscarContato, adicionarContato, removerContato}
+module.exports = {
+  consultarContato,
+  incluirContato,
+  atualizarContato,
+  removerContato,
+};

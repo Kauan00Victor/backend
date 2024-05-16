@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+  title: API Spotify
+  version: 0.1
+tags:
+  - name: musicas
+  - name: usuarios
+paths:
+  /musicas:
+  /musicas/{id}:
+components:
+  schemas:

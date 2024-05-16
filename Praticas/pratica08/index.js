@@ -1,13 +1,15 @@
 const contatoControlador = require('./controlador')
+const readline = require('readline-sync')
 
 function menu() {
+    console.log("AGENDA");
     console.log("1 - Adicionar contato");
     console.log("2 - Buscar contato");
     console.log("3 - Atualizar contato");
     console.log("4 - Remover contato");
     console.log("5 - Sair");
 }
-function escolherOpcao(opcao) {
+async function escolherOpcao(opcao) {
     switch (opcao) {
         case "1": {
             const nome = readline.question("Informe o seu nome: ");
@@ -39,15 +41,15 @@ function escolherOpcao(opcao) {
             contatoControlador.removerContato(nome);
             break;
         }
-        case "6":
+        case "5":
             process.exit(0);
     }
 }
-function main() {
+async function main() {
     while (true) {
         menu();
-        const opcao = readline.question("Entre com uma opção: ");
-        escolherOpcao(opcao);
+        const opcao = readline.question("Entre com uma opcao: ");
+        await escolherOpcao(opcao);
     }
 }
 main();

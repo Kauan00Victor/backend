@@ -35,30 +35,81 @@ paths:
               schema:
                 $ref: '#/components/schemas/Mensagem'
   /produtos/{id}:
+    post:
+      tags:
+        - produtos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        422:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
     get:
       tags:
         - produtos
+      parameters:
+        - in: path
+          type: string
+          name: id
       responses: 
         200:
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ArrayOfProdutos"
-    post:
-      tags:
-        - produtos
-    put:      
-      tags:
-        - produtos
-    delete:
-      tags:
-        - produtos
-      responses:
-        204:
+        404:
           content:
             application/json:
               schema:
-                $ref:'#/components/schemas/Mensagem'
+                $ref: '#/components/schemas/Mensagem'
+    put:      
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          type: string
+          name: id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArrayOfProdutos"
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+        422:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+    delete:
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          type: string
+          name: id
+      responses:
+        204:
+        404:
 
 components:
   schemas:

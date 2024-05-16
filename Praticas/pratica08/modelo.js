@@ -1,63 +1,45 @@
-const conectarDb = require('./database')
-
-const db = async function () {
-    return conectarDb()
-}
-
-const collection = function () {
-    return db.collection('contatos')
-}
+const { conectarDb } = require("./database");
 
 class Contato {
-    constructor(nome, telefone, email) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.id = null
-    }
+  constructor(nome, email, telefone) {
+    this.nome = nome;
+    this.email = email;
+    this.telefone = telefone;
+    this.id = null;
+  }
 }
 
-async function inserir() {
-    const result = await collection().insertOne({
-        nome: this.nome,
-        telefone: this.telefone,
-        email: this.email
-    })
-    this.id = result.ops[0]._id;
+async function inserir(contato) {
+  const { nome, email, telefone } = contato;
+  const db = await conectarDb();
+  const collection = db.collection("contatos");
+  const result = await collection.insertOne({ nome, email, telefone });
+  contato.id = result.insertedId;
+  return contato;
 }
 
-async function alterar() {
-    await collection().updateOne({
-        _id: this.id
-    },
-        {
-            $set: {
-                nome: this.nome,
-                telefone: this.telefone,
-                email: this.email
-            }
-        })
-}
-async function deletar() {
-    await collection().deleteOne({
-        _id: this.id
-    })
+async function consultar(contato) {
+  const { nome } = contato;
+  const db = await conectarDb();
+  const collection = db.collection("contatos");
+  const result = await collection.findOne({ nome });
+  contato.id = result._id;
+  contato.email = result.email;
+  contato.telefone = result.telefone;
+  return contato;
 }
 
-
-async function buscar() {
-    const result = await collection().findOne({
-        nome: this.nome,
-    })
-    if (result) {
-        this.id = result._id;
-        this.nome = result.nome;
-        this.telefone = result.telefone;
-        this.email = result.email;
-    }
-
-    return result;
+async function alterar(contato) {
+  const { id, nome, email, telefone } = contato;
+  const db = await conectarDb();
+  const collection = db.collection("contatos");
+  await collection.updateOne(
+    { _id: id },
+    { $set: { nome, email, telefone } }
+  );
+  return contato;
 }
 
-module.exports = Contato
+function deletar(contato) {}
 
+module.exports = { Contato, inserir, consultar, alterar, deletar };
