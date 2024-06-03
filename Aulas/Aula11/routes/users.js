@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-const contorller = require('../controllers/users')
+const controller = require('../controllers/users')
 
-router.post('/', contorller.criar)
+router.post('/', controller.criar)
 
-router.post('/login', contorller.entrar)
+router.post('/login', controller.entrar)
+
+router.post('/renovar', controller.renovar)
 
 module.exports = router;
 

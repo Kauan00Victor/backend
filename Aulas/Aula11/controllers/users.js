@@ -20,10 +20,25 @@ async function criar(req, res) {
 async function entrar(req, res) {
     const usuario = await Usuario.findOne({ email: req.body.email });
     if (usuario.senha === cifrarSenha(req.body.senha, usuario.salt)) {
-        res.json({ token: jwt.sign({ email: usuario.email }, '', { expiresIn: '1m' }) })
+        res.json({ token: jwt.sign({ email: usuario.email }, '123456', { expiresIn: '1m' }) })
     } else {
         res.status(401).status({ msg: 'acesso negado' });
     }
 }
 
-module.exports = { criar, entrar }
+async function renovar (req, res){
+    const token = req.headers['authorization'];
+
+    if(token){
+        try{
+            const payload = jwt.verify(token, '123456');
+            res.json({token: jwt.sign({email: payload.email}, '123456')});
+        } catch (error){
+            res.status(401).json({msg: "token invalido"});
+        }
+    } else {
+        res.status(400).json({msg: 'token nao fornecido'});
+    };
+};
+
+module.exports = { criar, entrar, renovar }
